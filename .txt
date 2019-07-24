@@ -36,3 +36,9 @@ root@egreen-1128-spb spb:/var/tmp/upgrade/images/VNXe-MR4SP4-upgrade-2.4.4.22638
 Fatal Error: Upgrades must be initiated on the primary SP.
 Action: Initiate the upgrade on the other SP and try again.
 
+
+c.	 hotfix_ARXXXXXX.spec / 2.3.1.19462.0.4.003.spec :  file - RPM spec file – defines what files are in the Record RPM:
+Source0:        hotfix_ARXXXXXX.conf                                                                                                                                                                Edit the description                                                                                                                                                                postun :  Here, put specific post-uninstallation actions :  Fix-dependent, no cheat available,  update hotfix_ARXXXXXX                                                                                                                                                                files:  update hotfix_ARXXXXXX.conf                                                                                                                                 Also, might need to run pre- stuff ... depends on the fix
+
+
+
