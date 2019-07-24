@@ -1,0 +1,38 @@
+Upgrade allows a VNXe to go from an existing version of software to a new version of software.  You must create a special upgrade image to perform the upgrade with.  Please see section V for more details.
+
+A.	Performing a Upgrade
+
+1.  Transfer image to machine 
+
+a.  Copy image to / on PRIMARY SP
+b.  Verify the image is a VNXe image
+gpg /VNXe*upgrade*tgz.bin.gpg  
+c.  Make upgrade directory and move/unpack image
+mkdir -p /var/tmp/upgrade/images
+cd /var/tmp/upgrade/images
+mv /VNXe*upgrade*tgz.bin /var/tmp/upgrade/images
+chmod +x VNXe*.tgz.bin
+./VNXe*upgrade*tgz.bin –-unpack
+
+Copy image to / on other SP:
+a.	 Create upgrade directory on the Other SP.
+ 	mkdir -p  /var/tmp/upgrade/images
+b.	 Copy image to /var/tmp/upgrade/images
+mv /VNXe*upgrade*tgz.bin /var/tmp/upgrade/images
+chmod +x VNXe*.tgz.bin
+./VNXe*upgrade*tgz.bin –unpack
+
+2.  Start Upgrade
+
+	Manual:
+		Go to primary SP:
+cd /var/tmp/upgrade/images/*tmpdir
+./upgrade_mgr/upgrade_mgr.pl  (must run from outside upgrade_mgr dir)
+
+
+Note: If you run the upgrade script from another SP, it will give below message:
+ 
+root@egreen-1128-spb spb:/var/tmp/upgrade/images/VNXe-MR4SP4-upgrade-2.4.4.22638-2.4.4.22638-1551949196-MAGNUM-DEBUG.tgz.bin.tmpdir> ./upgrade_mgr/upgrade_mgr.pl
+Fatal Error: Upgrades must be initiated on the primary SP.
+Action: Initiate the upgrade on the other SP and try again.
+
